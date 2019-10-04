@@ -68,7 +68,8 @@ def is_solved(board):
 def check_number(r, c, num, board):
     r1, r2 = (0, 3) if r < 3 else (3, 6) if r < 6 else (6, 9)
     c1, c2 = (0, 3) if c < 3 else (3, 6) if c < 6 else (6, 9)
-    return (num not in board[r]) and (num not in board[:, c]) and (num not in board[r1:r2, c1:c2])
+    return (num not in board[r]) and (num not in board[:, c]) \
+            and (num not in board[r1:r2, c1:c2])
 
 
 def get_choices(r, c, board):
@@ -81,8 +82,7 @@ def get_choices(r, c, board):
 
 
 def find_min_options(board):
-    # tim vi tri co so lua chon nho nhat
-    # tra ve vi tri (r, c) va nhung lua chon cho vi tri do: options
+    # find and return a position with minimum choices
     # (0, 1, [1, 3, 4])..
     min_options = 9
     result = [None, None, []]
